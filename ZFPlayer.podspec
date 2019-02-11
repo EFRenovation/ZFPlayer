@@ -11,6 +11,8 @@ Pod::Spec.new do |s|
     s.source_files = 'ZFPlayer/**/*.{h,m}'
     s.resource     = 'ZFPlayer/ZFPlayer.bundle'
     s.framework    = 'UIKit','MediaPlayer'
+    s.public_header_files = 'ZFPlayer/Public/**/*.h'
+    s.private_header_files = 'ZFPlayer/Private/**/*.h'
     s.dependency 'Masonry'
     s.requires_arc = true
 end
