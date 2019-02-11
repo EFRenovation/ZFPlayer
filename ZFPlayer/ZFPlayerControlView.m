@@ -522,7 +522,9 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
     }];
 
     if (self.isCellVideo) {
-        [self.backBtn setImage:ZFPlayerImage(@"ZFPlayer_close") forState:UIControlStateNormal];
+        // 隐藏关闭按钮
+        // [self.backBtn setImage:ZFPlayerImage(@"ZFPlayer_close") forState:UIControlStateNormal];
+        [self.backBtn setImage:nil forState:UIControlStateNormal];
     }
 }
 
@@ -664,7 +666,11 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
 - (UIButton *)closeBtn {
     if (!_closeBtn) {
         _closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_closeBtn setImage:ZFPlayerImage(@"ZFPlayer_close") forState:UIControlStateNormal];
+
+        // 隐藏关闭按钮
+        // [_closeBtn setImage:ZFPlayerImage(@"ZFPlayer_close") forState:UIControlStateNormal];
+        [_closeBtn setImage:nil forState:UIControlStateNormal];
+
         [_closeBtn addTarget:self action:@selector(closeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         _closeBtn.hidden = YES;
     }
@@ -850,7 +856,11 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
 - (UIProgressView *)bottomProgressView {
     if (!_bottomProgressView) {
         _bottomProgressView                   = [[UIProgressView alloc] init];
-        _bottomProgressView.progressTintColor = [UIColor whiteColor];
+
+        // 隐藏底部进度条
+        _bottomProgressView.progressTintColor = [UIColor clearColor];
+        // _bottomProgressView.progressTintColor = [UIColor whiteColor];
+
         _bottomProgressView.trackTintColor    = [UIColor clearColor];
     }
     return _bottomProgressView;
@@ -983,7 +993,10 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
 - (void)zf_playerCellPlay {
     self.cellVideo = YES;
     self.shrink    = NO;
-    [self.backBtn setImage:ZFPlayerImage(@"ZFPlayer_close") forState:UIControlStateNormal];
+
+    // 隐藏关闭按钮
+    // [self.backBtn setImage:ZFPlayerImage(@"ZFPlayer_close") forState:UIControlStateNormal];
+    [self.backBtn setImage:nil forState:UIControlStateNormal];
 }
 
 - (void)zf_playerCurrentTime:(NSInteger)currentTime totalTime:(NSInteger)totalTime sliderValue:(CGFloat)value {

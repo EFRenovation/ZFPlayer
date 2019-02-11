@@ -350,8 +350,8 @@
                 if (image) {
                     if (weakSelf.shouldAutoClipImageToViewSize) {
                         // cutting
-                        if (fabs(weakSelf.frame.size.width - image.size.width) != 0
-                            && fabs(weakSelf.frame.size.height - image.size.height) != 0) {
+                        if (abs(weakSelf.frame.size.width - image.size.width) != 0
+                            && abs(weakSelf.frame.size.height - image.size.height) != 0) {
                             finalImage = [self clipImage:image toSize:weakSelf.frame.size isScaleToMax:YES];
                         }
                     }

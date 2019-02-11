@@ -1106,7 +1106,7 @@ typedef NS_ENUM(NSInteger, PanDirection){
         // 转换成CMTime才能给player来控制播放进度
         [self.controlView zf_playerActivity:YES];
         [self.player pause];
-        CMTime dragedCMTime = CMTimeMake(dragedSeconds, 1); //kCMTimeZero
+        CMTime dragedCMTime = CMTimeMake(dragedSeconds, 1); //CMTime.zero
         __weak typeof(self) weakSelf = self;
         [self.player seekToTime:dragedCMTime toleranceBefore:CMTimeMake(1,1) toleranceAfter:CMTimeMake(1,1) completionHandler:^(BOOL finished) {
             [weakSelf.controlView zf_playerActivity:NO];
@@ -1141,8 +1141,8 @@ typedef NS_ENUM(NSInteger, PanDirection){
     switch (pan.state) {
         case UIGestureRecognizerStateBegan: { // 开始移动
             // 使用绝对值来判断移动的方向
-            CGFloat x = fabs(veloctyPoint.x);
-            CGFloat y = fabs(veloctyPoint.y);
+            CGFloat x = abs(veloctyPoint.x);
+            CGFloat y = abs(veloctyPoint.y);
             if (x > y) { // 水平移动
                 // 取消隐藏
                 self.panDirection = PanDirectionHorizontalMoved;
