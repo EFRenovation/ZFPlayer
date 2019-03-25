@@ -1106,7 +1106,7 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
     self.backgroundColor  = RGBA(0, 0, 0, .3);
     ZFPlayerShared.isStatusBarHidden = NO;
     self.bottomProgressView.alpha = 0;
-    if self.zf_playerPlayEndBlock {
+    if (self.zf_playerPlayEndBlock) {
         self.zf_playerPlayEndBlock();
     }
 }
