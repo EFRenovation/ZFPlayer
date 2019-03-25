@@ -27,4 +27,6 @@
 
 @interface ZFPlayerControlView : UIView 
 
+@property (nonatomic, copy) void (^zf_playerPlayEndBlock)();
+
 @end
